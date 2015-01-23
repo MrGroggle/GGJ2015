@@ -21,7 +21,7 @@ public class PlayerGUI : MonoBehaviour {
 		GUI.Box (new Rect (5, 30, 50, 23), "Health");
 		GUI.Box (new Rect (5, 55, 50, 23), "Hunger");
 
-		GUI.Box (new Rect(55, 30, bar
+		GUI.Box (new Rect (55, 30, barLength, 23), "PLACEHOLDER");
 	}
 
 
