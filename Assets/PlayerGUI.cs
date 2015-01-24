@@ -6,7 +6,8 @@ using System.Collections.Generic;
 
 public class PlayerGUI : MonoBehaviour {	
 	
-	public Vector2 barSize = new Vector2(240, 20);
+	public Vector2 barSize = new Vector2(240, 20);	
+	public float barLength = 0.0f;
 	
 	//Health
 	public float healthFallRate = 150f;
@@ -31,21 +32,7 @@ public class PlayerGUI : MonoBehaviour {
 	public float staminaDisplay = 1f;
 	public Texture2D staminaBarEmpty;
 	public Texture2D staminaBarFull;
-
 	
-	private CharacterMotor motor;
-	public CharacterController controller;
-	public bool canJump = true;
-	public float jumpTimer = 0.7f;
-	public float barLength = 0.0f;
-
-	// Use this for initialization
-	void Start () 
-	{
-		controller = GetComponent<CharacterController>();
-		motor = GetComponent<CharacterMotor>();
-
-	}
 	
 	// Update is called once per frame
 	void Update () 
@@ -67,6 +54,10 @@ public class PlayerGUI : MonoBehaviour {
 		{
 			hungerDisplay = 1f;
 		}
+		if(hungerDisplay >= 0.75)
+		{
+			healthDisplay += Time.deltaTime / healthFallRate;
+		}
 		if (staminaDisplay >= 1) 
 		{
 			staminaDisplay = 1f;
@@ -74,46 +65,7 @@ public class PlayerGUI : MonoBehaviour {
 		if (staminaDisplay <= 0) 
 		{
 			staminaDisplay = 0;
-			motor.movement.maxForwardSpeed = 6;
-			motor.movement.maxSidewaysSpeed = 6;
-		}
-		if (controller.velocity.magnitude > 0 && Input.GetButton("Sprint")) 
-		{
-			motor.movement.maxForwardSpeed = 10;
-			motor.movement.maxSidewaysSpeed = 10;
-			staminaDisplay -= Time.deltaTime / staminaFallRate * 1.5f;
-		} 
-		else 
-		{
-			motor.movement.maxForwardSpeed = 6;
-			motor.movement.maxSidewaysSpeed = 6;
-			staminaDisplay += Time.deltaTime / staminaFallRate;
-		}
-
-		if (Input.GetButton("Jump") && canJump == true) 
-		{
-			Debug.Log("Jumping");
-			staminaDisplay -= 0.2f;
-		}
-		if (!canJump)
-		{
-			jumpTimer = Time.deltaTime;
-			motor.jumping.enabled = false;
-		}
-		
-		if(jumpTimer <= 0)
-		{
-			canJump = true;
-			motor.jumping.enabled = true;
-			jumpTimer = 0.7f;
-		}
-		
-		if(staminaDisplay <= 0.2f)
-		{
-			canJump = false;
-			motor.jumping.enabled = false;
 		}	
-		
 
 
 	}
