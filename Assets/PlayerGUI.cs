@@ -8,7 +8,7 @@ public class PlayerGUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		chMotor = GetComponent (CharacterMotor);
+		//chMotor = GetComponent (CharacterMotor);
 	}
 	
 	// Update is called once per frame
@@ -28,23 +28,23 @@ public class PlayerGUI : MonoBehaviour {
 	Vector2 barSize = new Vector2(240, 20);
 
 	//Health
-	Vector2 healthPos = new Vector2(20,20);
-	float healthDisplay = 1f;
-	Texture2D healthBarEmpty;
-	Texture2D healthBarFull;
+	public Vector2 healthPos = new Vector2(20,20);
+	public float healthDisplay = 1f;
+	public Texture2D healthBarEmpty;
+	public Texture2D healthBarFull;
 
-	//Hunger
-	Vector2 hungerPos = new Vector2(20,20);
-	float hungerDisplay = 1f;
-	Texture2D hungerBarEmpty;
-	Texture2D hungerBarFull;
+	 //Hunger
+	public Vector2 hungerPos = new Vector2(20,20);
+	public float hungerDisplay = 1f;
+	public Texture2D hungerBarEmpty;
+	public Texture2D hungerBarFull;
 
-	float healthFallRate = 150f;
-	float hungerFallRate = 150f;
+	public float healthFallRate = 150f;
+	public float hungerFallRate = 150f;
 
-	CharacterMotor chMotor;
-	CharacterController controller;
-	bool m_canJump = false;
-	float jumpTimer = 0.7f;
-	float barLength = 0.0f;
+	//public CharacterMotor chMotor;
+	public CharacterController controller;
+	public bool m_canJump = false;
+	public float jumpTimer = 0.7f;
+	public float barLength = 0.0f;
 }
