@@ -4,14 +4,18 @@ using System.Collections;
 public class itemCollect : MonoBehaviour {
 	private Inv inventory;
 	private bool guiShow = false;
+
 	public GameObject bush;
 	public GameObject player;
+
 	private float rayLength = 10f;
 	
 	// Use this for initialization
 	void Start () 
 	{
+		Debug.Log ("started");
 		inventory = GameObject.Find ("First Person Controller").GetComponent<Inv>();
+		Debug.Log ("inventory", inventory);
 	}
 	
 	// Update is called once per frame

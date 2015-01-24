@@ -85,7 +85,9 @@ public class playerControl : MonoBehaviour
 		}
 		if(Input.GetButtonDown("Jump") && canJump == true)
 		{
-			WaitForJump ();			
+			playerGUI.staminaDisplay -= 0.1f;
+			WaitForJump ();	
+
 		}
 		if(canJump == false)
 		{
@@ -121,6 +123,6 @@ public class playerControl : MonoBehaviour
 	{
 		yield return new WaitForSeconds(0.1f);
 		canJump = false;
-		playerGUI.staminaDisplay -= 0.1f;
+
 	}
 }
