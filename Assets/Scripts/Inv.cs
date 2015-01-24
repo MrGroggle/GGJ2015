@@ -13,9 +13,19 @@ public class Inv : MonoBehaviour {
 	public int minimumVal = 0;
 	private bool showGUI = false;
 
-
+	private PlayerGUI playerGUI;
 	
+	void Start()
+	{
+
+		playerGUI = GameObject.Find ("First Person Controller").GetComponent<PlayerGUI> ();
+
+	}
+
+
+
 	// Update is called once per frame
+
 	void Update () {
 
 		if(wood <= 0)
@@ -116,7 +126,7 @@ public class Inv : MonoBehaviour {
 	}
 	void Eat()
 	{
-		//playerGUI.hungerBarDisplay += 0.1;
+		playerGUI.hungerDisplay += 0.2f;
 	}
 	
 	void Drink()
