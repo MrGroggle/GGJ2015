@@ -7,12 +7,12 @@ public class CampfireInstantiator : MonoBehaviour
 	public GameObject Player;
 
 	private bool CanBuild = false;
+	private Light FireLight;
 
 	void Start()
 	{
-		Color GreenColour = Color.green;
-		GreenColour.a = 0.5f;
-		renderer.material.color = GreenColour;
+		FireLight = gameObject.GetComponentInChildren<Light> ();
+		FireLight.color = Color.green;
 		CanBuild = true;
 	}
 
@@ -20,9 +20,7 @@ public class CampfireInstantiator : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Terrain" || other.gameObject.tag == "Tree") 
 		{
-			Color RedColour = Color.red;
-			RedColour.a = 0.5f;
-			renderer.material.color = RedColour;
+			FireLight.color = Color.red;
 			CanBuild = false;
 		}
 	}
@@ -31,9 +29,7 @@ public class CampfireInstantiator : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Terrain" || other.gameObject.tag == "Tree") 
 		{
-			Color GreenColour = Color.green;
-			GreenColour.a = 0.5f;
-			renderer.material.color = GreenColour;
+			FireLight.color = Color.green;
 			CanBuild = true;
 		}
 	}
