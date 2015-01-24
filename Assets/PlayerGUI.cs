@@ -44,6 +44,7 @@ public class PlayerGUI : MonoBehaviour {
 	{
 		controller = GetComponent<CharacterController>();
 		motor = GetComponent<CharacterMotor>();
+
 	}
 	
 	// Update is called once per frame
@@ -153,5 +154,4 @@ public class PlayerGUI : MonoBehaviour {
 	{
 		Application.LoadLevel("SurvivalScene");
 	}
-
 }
