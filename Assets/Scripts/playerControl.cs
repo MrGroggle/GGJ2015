@@ -20,10 +20,10 @@ public class playerControl : MonoBehaviour
 	void Start()
 	{
 		hasAxe = true;
-		controller = GameObject.Find ("First Person Controller").GetComponent<CharacterController> ();
-		motor = GameObject.Find ("First Person Controller").GetComponent<CharacterMotor>();
+        controller = GameObject.FindWithTag("FirstPersonController").GetComponent<CharacterController>();
+        motor = GameObject.FindWithTag("FirstPersonController").GetComponent<CharacterMotor>();
 		// implement player gui 
-		playerGUI = GameObject.Find("First Person Controller").GetComponent<PlayerGUI>();
+        playerGUI = GameObject.FindWithTag("FirstPersonController").GetComponent<PlayerGUI>();
 
 	}
 

@@ -52,20 +52,20 @@ public class Inv : MonoBehaviour {
 		if ( showGUI == true)
 		{
 			Time.timeScale = 0;
-			GameObject.Find("First Person Controller").GetComponent<FPSInputController>().enabled = false;
-			GameObject.Find("First Person Controller").GetComponent<MouseLook>().enabled = false;
-			GameObject.Find("Main Camera").GetComponent<MouseLook>().enabled = false;
-			GameObject.Find("FPSArms_Axe@Idle").GetComponent<playerControl>().enabled = false;
+            GameObject.FindWithTag("FirstPersonController").GetComponent<FPSInputController>().enabled = false;
+            GameObject.FindWithTag("FirstPersonController").GetComponent<MouseLook>().enabled = false;
+            GameObject.FindWithTag("Main Camera").GetComponent<MouseLook>().enabled = false;
+            GameObject.FindWithTag("FPSArms_Axe@Idle").GetComponent<playerControl>().enabled = false;
 			
 		} 	
 		
 		if ( showGUI == false)
 		{
 			Time.timeScale = 1;
-			GameObject.Find("First Person Controller").GetComponent<FPSInputController>().enabled = true;
-			GameObject.Find("First Person Controller").GetComponent<MouseLook>().enabled = true;
-			GameObject.Find("Main Camera").GetComponent<MouseLook>().enabled = true;
-			GameObject.Find("FPSArms_Axe@Idle").GetComponent<playerControl>().enabled = true;
+            GameObject.FindWithTag("FirstPersonController").GetComponent<FPSInputController>().enabled = true;
+            GameObject.FindWithTag("FirstPersonController").GetComponent<MouseLook>().enabled = true;
+            GameObject.FindWithTag("MainCamera").GetComponent<MouseLook>().enabled = true;
+            GameObject.Find ("FPSArms_Axe@Idle").GetComponent<playerControl>().enabled = true;
 			
 		} 
 	}

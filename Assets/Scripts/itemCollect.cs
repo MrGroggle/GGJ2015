@@ -14,7 +14,7 @@ public class itemCollect : MonoBehaviour {
 	void Start () 
 	{
 		Debug.Log ("started");
-		inventory = GameObject.Find ("First Person Controller").GetComponent<Inv>();
+        inventory = GameObject.FindWithTag("FirstPersonController").GetComponent<Inv>();
 		Debug.Log ("inventory", inventory);
 	}
 	
