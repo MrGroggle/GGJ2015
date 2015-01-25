@@ -41,6 +41,7 @@ public class CampfireInstantiator : MonoBehaviour
 		{
 			Instantiate (CampfirePrefab, transform.position, Quaternion.identity);
 			Player.GetComponent<Crafting>().Campfire.SetActive(false);
+			Player.GetComponent<Crafting>().Cabin.SetActive(false);
 		}
 	}
 }
