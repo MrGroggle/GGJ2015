@@ -11,7 +11,7 @@ public class CampfireInstantiator : MonoBehaviour
 
 	void Start()
 	{
-
+		gameObject.AddComponent<Light> ();
 		FireLight = gameObject.GetComponent<Light> ();
 		FireLight.color = Color.green;
 		CanBuild = true;
