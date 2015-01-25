@@ -25,7 +25,7 @@ public class itemCollect : MonoBehaviour {
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 
 		if (Physics.Raycast (transform.position, fwd, out hit, rayLength)) {
-			Debug.Log ("hit!");
+//			Debug.Log ("hit!");
 						if (hit.collider.gameObject.tag == "fish") {
 				Debug.Log ("hit fish!");
 						guiShow = true;
