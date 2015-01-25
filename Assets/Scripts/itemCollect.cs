@@ -13,30 +13,53 @@ public class itemCollect : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		Debug.Log ("started");
 		inventory = GameObject.Find ("First Person Controller").GetComponent<Inv>();
-		Debug.Log ("inventory", inventory);
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit = new RaycastHit();
-		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 
-		if (Physics.Raycast (transform.position, fwd, out hit, rayLength)) {
-					if (hit.collider.gameObject.tag == "fish") {
-						guiShow = true;
+		if (Physics.Raycast (ray, out hit, rayLength)) {
+			if (hit.collider.gameObject.tag == "fish") 
+			{
+				guiShow = true;
 
-								if (Input.GetKeyDown (KeyCode.E)) {
-
-										inventory.fish++;
-										Destroy (hit.collider.gameObject);
-										guiShow = false;
-								}
-
-						} 
+				if (Input.GetButtonDown("Use")) 
+				{
+					inventory.fish++;
+					Destroy (hit.collider.gameObject);
+					guiShow = false;
 				}
+
+			} 
+			if (hit.collider.gameObject.tag == "Log") 
+			{
+				guiShow = true;
+				
+				if (Input.GetButtonDown("Use")) 
+				{
+					inventory.wood++;
+					Destroy (hit.collider.gameObject);
+					guiShow = false;
+				}
+				
+			} 
+			if (hit.collider.gameObject.tag == "Coconut") 
+			{
+				guiShow = true;
+				
+				if (Input.GetButtonDown("Use")) 
+				{
+					inventory.food++;
+					Destroy (hit.collider.gameObject);
+					guiShow = false;
+				}
+				
+			} 
+		}
 		else 
 		{
 			guiShow = false;

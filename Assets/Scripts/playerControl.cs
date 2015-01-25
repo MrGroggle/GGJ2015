@@ -9,7 +9,7 @@ public class playerControl : MonoBehaviour
 	private CharacterMotor motor;
 	
 	private bool hasAxe = false;
-	private bool canSwing = true;
+	public bool canSwing = true;
 	private bool isSwinging = false;	
 	private bool canJump = true;
 	private bool canSprint = true;
@@ -86,7 +86,7 @@ public class playerControl : MonoBehaviour
 		if(Input.GetButtonDown("Jump") && canJump == true)
 		{
 			playerGUI.staminaDisplay -= 0.1f;
-			WaitForJump ();	
+			StartCoroutine(WaitForJump ());	
 
 		}
 		if(canJump == false)
