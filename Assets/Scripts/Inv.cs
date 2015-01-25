@@ -8,7 +8,7 @@ public class Inv : MonoBehaviour {
 	public int wood= 0;
 	public int fish = 0;
 	public int water= 0;
-	public int bandage = 0;
+	public int stone = 0;
 	public int food = 0;
 	public int minimumVal = 0;
 	private bool showGUI = false;
@@ -42,9 +42,9 @@ public class Inv : MonoBehaviour {
 			water = minimumVal;
 		}
 		
-		if(bandage <= 0)
+		if(stone <= 0)
 		{
-			bandage = minimumVal;
+			stone = minimumVal;
 		}
 		
 		if(Input.GetKeyDown(KeyCode.I))
@@ -86,6 +86,9 @@ public class Inv : MonoBehaviour {
 			//get wood! ;)
 			GUI.Label(new Rect(10, 50, 50, 50), "Wood");
 			GUI.Box(new Rect(60, 50, 20, 20), "" + wood);
+
+			GUI.Label(new Rect(10, 80, 50, 50), "Stone");
+			GUI.Box(new Rect(60, 80, 20, 20), "" + stone);
 
 			//more holders for items in game
 			GUI.Label(new Rect(10, 130, 50, 50), "Fish");

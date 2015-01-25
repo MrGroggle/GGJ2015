@@ -6,14 +6,14 @@ public class RaycastChop : MonoBehaviour {
 	
 	//private TreeController treeScript;
 	private playerControl playerAnim;
-	private GameObject tree;
+	private GameObject hitObject;
 	// Use this for initialization
 	void Start () {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit = new RaycastHit();	
@@ -23,13 +23,23 @@ public class RaycastChop : MonoBehaviour {
 			
 			if(hit.collider.gameObject.tag == "Tree")
 			{
-				tree = hit.collider.gameObject;				
-				Debug.DrawLine(ray.origin, hit.point);
+				hitObject = hit.collider.gameObject;	
 				playerAnim = GameObject.Find("FPSArms_Axe@Idle").GetComponent<playerControl>();
 				
 				if(Input.GetButtonDown("Fire1") && playerAnim.canSwing == true)
 				{
-					tree.GetComponent<TreeController>().treeHealth -= 1;
+					hitObject.GetComponent<TreeController>().treeHealth -= 1;
+				}				
+			}
+			
+			if(hit.collider.gameObject.tag == "Rock")
+			{
+				hitObject = hit.collider.gameObject;	
+				playerAnim = GameObject.Find("FPSArms_Axe@Idle").GetComponent<playerControl>();
+				
+				if(Input.GetButtonDown("Fire1"))
+				{
+					hitObject.GetComponent<StoneController>().stoneHealth -= 1;
 				}				
 			}
 		}

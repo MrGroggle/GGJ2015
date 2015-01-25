@@ -59,6 +59,18 @@ public class itemCollect : MonoBehaviour {
 				}
 				
 			} 
+			if (hit.collider.gameObject.tag == "stone") 
+			{
+				guiShow = true;
+				
+				if (Input.GetButtonDown("Use")) 
+				{
+					inventory.stone++;
+					Destroy (hit.collider.gameObject);
+					guiShow = false;
+				}
+				
+			} 
 		}
 		else 
 		{
