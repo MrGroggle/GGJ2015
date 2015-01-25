@@ -9,6 +9,8 @@ public class CompletedLevel : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) 
 	{
-		Application.LoadLevel (Level);
+		if (other.gameObject.tag == "Player") {
+						Application.LoadLevel (Level);
+				}
 	}
 }

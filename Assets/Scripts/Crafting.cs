@@ -27,6 +27,7 @@ public class Crafting : MonoBehaviour
 
 	void Update()
 	{
+
 		if (Input.GetKeyDown (KeyCode.C)) 
 		{
 			ShowGUI = !ShowGUI;
