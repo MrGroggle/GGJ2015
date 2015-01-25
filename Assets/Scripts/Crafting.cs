@@ -10,9 +10,11 @@ public class Crafting : MonoBehaviour
 
 	// Icons
 	public Texture CampfireIcon;
+	public Texture CabinIcon;
 
 	// Prefabs
 	public GameObject Campfire;
+	public GameObject Cabin;
 
 	private bool ShowGUI = false;
 
@@ -57,7 +59,7 @@ public class Crafting : MonoBehaviour
 			GUI.BeginGroup(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 150, 300, 300));
 			GUI.Box (new Rect(0, 0, 300, 300), "Crafting System");
 
-			if (GUI.Button(new Rect(10, 50, 50, 50), new GUIContent(CampfireIcon, "Build a campfire")))
+			if (GUI.Button(new Rect(10, 50, 50, 50), new GUIContent(CampfireIcon, "Build a campfire (3 wood)")))
 			{
 				if (InvScript.wood >= 3)
 				{
@@ -68,8 +70,15 @@ public class Crafting : MonoBehaviour
 				}
 			}
 
-			// Second col.
-
+			if (GUI.Button(new Rect(10, 120, 50, 50), new GUIContent(CabinIcon, "Build a cabin (20 wood)")))
+			{
+				if (InvScript.wood >= 1)
+				{
+					Cabin.SetActive(true);
+					
+					InvScript.wood -= 1;
+				}
+			}
 
 			GUI.Label(new Rect(100, 250, 100, 40), GUI.tooltip);
 			GUI.EndGroup();
