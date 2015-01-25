@@ -61,7 +61,9 @@ public class Crafting : MonoBehaviour
 			{
 				if (InvScript.wood >= 3)
 				{
+					Debug.Log ("Activated campfire");
 					Campfire.SetActive(true);
+
 					InvScript.wood -= 3;
 				}
 			}
