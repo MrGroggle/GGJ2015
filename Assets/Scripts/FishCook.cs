@@ -18,16 +18,17 @@ public class FishCook : MonoBehaviour
 	void Update () 
 	{
 		RaycastHit hit = new RaycastHit();
-		Vector3 fwd = Player.transform.TransformDirection (Vector3.forward);
+		Vector3 fwd = Player.transform.forward;
 		GUIShow = false;
 
 		CookedTimer -= Time.deltaTime;
 
-		if (Physics.Raycast (transform.position, fwd, out hit, 5f))
+		if (Physics.Raycast (transform.position, fwd, out hit, 3f))
 		{
 			if (hit.collider.gameObject.tag == "Campfire")
 			{
-				Debug.DrawLine(Player.transform.position, hit.point);
+				Debug.DrawRay(transform.position, fwd, Color.cyan);
+				Debug.DrawLine(Player.transform.position, hit.point, Color.red);
 				GUIShow = true;
 			}
 		}
